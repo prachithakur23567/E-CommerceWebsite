@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function useFetch(fetchFn,deps=[]){
   const [data,setData] = useState(null);
   const [loading,setLoading] = useState(false);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     let isMounted = true;
 
@@ -24,6 +24,7 @@ export default function useFetch(fetchFn,deps=[]){
       isMounted = false;
     };
   }, deps);
+  
 
   return {data,loading};
 }
