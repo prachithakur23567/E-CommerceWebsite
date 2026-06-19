@@ -94,7 +94,7 @@ export default function ProductDetailPage() {
             <p className="text-xl font-bold">${product?.price}</p>
             <div className="flex items-center gap-1">
               {renderStars(product?.rating)}
-              <span className="text-yellow-500 ml-1">{product?.rating}</span>
+              <span className="text-yellow-500 ml-1">({product?.rating})</span>
             </div>
           </div>
           <p className="mb-1">
@@ -127,7 +127,7 @@ export default function ProductDetailPage() {
                   ),
                 )}
 
-                <span>{r.rating}</span>
+                <span>({r.rating}.0)</span>
               </p>
               <p className="text-gray-600 text-sm">{r?.comment}</p>
             </div>
