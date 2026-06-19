@@ -13,25 +13,13 @@ export default function BrandFilter({activeFilter,setActiveFilter}){
   const { data, loading } = useFetch(()=>{
     return filters.category? fetchByCategory(filters.category):fetchProducts(100, 0);
   },[filters.category]);
-  // const brands = data?.products? getUniqueBrands(data.products):[];
-  // // filter brands according to search text
-  // const filteredBrands = useMemo(()=>{
-  //   return brands.filter((b) =>b && b.toLowerCase().includes(debouncedSearch.toLowerCase())
-  //   );
-  // }, [brands, debouncedSearch]);
-const brands = useMemo(() => {
-  return data?.products
-    ? getUniqueBrands(data.products)
-    : [];
-}, [data?.products]);
+  const brands = data?.products? getUniqueBrands(data.products):[];
+  // filter brands according to search text
+  const filteredBrands = useMemo(()=>{
+    return brands.filter((b) =>b && b.toLowerCase().includes(debouncedSearch.toLowerCase())
+    );
+  }, [brands, debouncedSearch]);
 
-const filteredBrands = useMemo(() => {
-  return brands.filter(
-    (b) =>
-      b &&
-      b.toLowerCase().includes(debouncedSearch.toLowerCase())
-  );
-}, [brands, debouncedSearch]);
    // add or remove selected brand from filters
   const toggleBrand =(brand)=>{
     const exists=filters?.brands.includes(brand);

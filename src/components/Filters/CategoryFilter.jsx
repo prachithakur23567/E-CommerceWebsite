@@ -12,21 +12,14 @@ export default function CategoryFilter({ activeFilter, setActiveFilter }) {
   const { filters, setFilters } = useProductContext();
   const isOpen = activeFilter === "category";
   const { data, loading } = useFetch(fetchCategories, []);
-  // const categories = data || [];
-
-  // // filter categories based on search text
-  // const filteredCategories = useMemo(() => {
-  //   return categories.filter((cat) =>
-  //     cat?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()),
-  //   );
-  // }, [categories, debouncedSearch]);
-  const filteredCategories = useMemo(() => {
   const categories = data || [];
 
-  return categories.filter((cat) =>
-    cat?.name?.toLowerCase().includes(debouncedSearch.toLowerCase())
-  );
-}, [data, debouncedSearch]);
+  // filter categories based on search text
+  const filteredCategories = useMemo(() => {
+    return categories.filter((cat) =>
+      cat?.name?.toLowerCase().includes(debouncedSearch.toLowerCase()),
+    );
+  }, [categories, debouncedSearch]);
   return (
     <div className="mb-6 border-b border-gray-200 pb-4">
       <div className="relative mb-4">

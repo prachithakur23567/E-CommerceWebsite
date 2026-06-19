@@ -53,7 +53,7 @@ const isFilterApplied =CategorySelected||BrandSelected||MinPriceSet||MaxPriceSet
     };
 
     load();
-  },[filters,page,skip]);
+  },[filters,page]);
 
   return {products,total,loading};
 }

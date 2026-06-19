@@ -12,7 +12,7 @@ export default function Navbar({toggleFilters}){
   useEffect(()=>{setFilters((prev)=>({
   ...prev,search: debouncedSearch,
   }));
-},[debouncedSearch, setFilters]);
+},[debouncedSearch]);
   return(
     <div className="bg-slate-700 px-6 py-3 flex items-center justify-between">
       <FiMenu
